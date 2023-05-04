@@ -12,14 +12,12 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Todo App',
-      home: ChangeNotifierProvider(
-        create: (context) => Todos(),
-        child: TodoListScreen(),
+    return ChangeNotifierProvider(
+      create: (context) => Todos(),
+      child: MaterialApp(
+        title: 'Todo App',
+        home: TodoListScreen(),
       ),
     );
   }
 }
-
-
