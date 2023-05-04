@@ -4,9 +4,23 @@ import 'package:provider/provider.dart';
 
 import 'todos.dart';
 
+class TodoListScreen extends StatefulWidget {
+  @override
+  State<TodoListScreen> createState() => _TodoListScreenState();
+}
 
-class TodoListScreen extends StatelessWidget {
+class _TodoListScreenState extends State<TodoListScreen> {
   final TextEditingController _controller = TextEditingController();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getTodos();
+  }
+
+  getTodos() async {
+    await Provider.of<Todos>(context, listen: false).loadFromPrefs();
+  }
 
   @override
   Widget build(BuildContext context) {
